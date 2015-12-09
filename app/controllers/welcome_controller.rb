@@ -1,14 +1,11 @@
 class WelcomeController < ApplicationController
-
-	require 'csv'    
-	# array to store quote and its author as a dictionary {:title => 'title', :author => 'quote'}
-	@@quote_array = []
-	CSV.foreach('public/quotes.csv') do |row|
-		@@quote_array << [:title=>row[0], :author =>row[1]]
-	end
-
-	
 	def index
+		require 'csv'    
+		# array to store quote and its author as a dictionary {:title => 'title', :author => 'quote'}
+		@@quote_array = []
+		CSV.foreach('public/quotes.csv') do |row|
+			@@quote_array << [:title=>row[0], :author =>row[1]]
+		end
 	end
 
 	def quote
